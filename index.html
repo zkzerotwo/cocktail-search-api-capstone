@@ -7,6 +7,44 @@
     <title>Template</title>
   </head>
   <body>
+    <section class="welcome">
+      <div>
+
+      </div>
+    </section>
+    <section class="introduction">
+      <div>
+        <h3>Welcome to the Cocktail Menu Builder. Search for your cocktails by spirit or ingredient to return a list for you to save for a mini menu of your own. Check cocktails to save to compare to your future searches and build a menu anyone would call a winner.
+        </h3>
+      </div>
+    </section>
+    <section class="hidden">
+      <form id="cocktails">
+        <label for="ingredient-list">Choose a liquor:</label>
+        <input list="spirits">
+        <datalist>
+          <option value=""></option>
+        </datalist>
+        <button type="submit"></button>
+        <label for="cocktail-list">Choose a cocktail:</label>
+        <input list="cocktail-list">
+        <datalist>
+          <option value=""></option>
+        </datalist>
+        </label>
+      </form>
+    </section>
+    <section class="results hidden">
+      <form id="results-list">
+        <label for="results-list"></label>
+        <input type ="checkbox" id="results" name ="" value="">
+      </form>
+    </section>
+      <section class="thumbnails">
+        <div class="selected-drinks">
+          <img src="">
+        </div>
+      </section>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
   </body>
