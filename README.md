@@ -10,14 +10,17 @@ Users search for cocktails and build their own menu
 
 
 ### 2. User Stories (to do now)
-This app is for users who want to build their own cocktail menus
-Oriented for casual cocktailers, it will encourage exploration of drinks by base spirit, flavored liquors, and other ingredients
+Users see introduction and welcome message
 
 
 ###### (Example) Landing Page (Importance - High) [Estimation: 1 hr]
-* as a visitor
+*As a user
 *You will be welcomed with examples of how to build cocktail menus and match or contrast flavors
-*You will be able to save cocktails found in your search to compare with others you find
+*Select from a dropdown menu a list of ingredients or cocktails
+*Search results will populate a new form with checkboxes, cocktail names, and images
+*clicked images will reveal measurements and instructions
+*checkboxes will save and create thumbnails of cocktails
+*thumbnails clicked will bring up the cocktails they've saved
 *You will be able to view five cocktails you've saved as thumbnails
 
 
