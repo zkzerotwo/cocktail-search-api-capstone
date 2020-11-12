@@ -27,6 +27,7 @@ Users see introduction and welcome message
 ### 3. Functionality (to do now)
 The app's functionality includes:
 * Every user will be able to find cocktails by ingredient, spirit, or name
+*Dropdown menus will be populated by Cocktail DB's API
 * Every user will be able to save cocktails they've found temporarily
 
 
