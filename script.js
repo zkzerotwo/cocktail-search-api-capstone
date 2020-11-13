@@ -77,22 +77,24 @@ function getDataById(cocktailId) {
 
 function displayCocktailDetails(responseJson) {
     console.log(responseJson);
-    let htmlOutput = "";
-
     //Step 3d - populate the htmlOutut variable with all the relevant data
     for (i = 0; i < responseJson.drinks.length; i++) {
         console.log(responseJson.drinks[i])
-        htmlOutput += `
-                <li>${responseJson.drinks[i].strDrink}
-                <ul>
-                <li>${responseJson.drinks[i].strDrinkThumb}</li>
-                <li>${responseJson.drinks[i]}</li>
-                <li>${responseJson.drinks[i]}</li></ul></li>
-            `;
+        $('#results-list').append(`
+                <label for="cocktail-select">
+                    <li>
+                        <h3>${responseJson.drinks[i].strDrink}</h3>
+                        <input type="checkbox" id="cocktail-select">
+                        <ul>
+                            <li><img src="${responseJson.drinks[i].strDrinkThumb}" class="img-full"></li>
+                        </ul>
+                        </input>
+                    </li>
+                </label>
+            `);
     }
 
     //Step 3e - send the content of HTML results variable to the HTML
-    $('#results-list').html(htmlOutput);
     $('.results').removeClass('hidden');
 }
 //Get drink ID's based on search results
@@ -107,7 +109,7 @@ function displayCocktailDetails(responseJson) {
 // Watch form for cocktail submissions
 function cocktailWatch() {
     console.log("Waiting on the bartender");
-    $('form').submit(event => {
+    $('form[id="cocktails"]').submit(event => {
         event.preventDefault();
     const chosenIngredient = $('.ingredient-list').val();
     console.log(chosenIngredient);
