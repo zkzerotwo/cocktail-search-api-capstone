@@ -79,29 +79,80 @@ function displayCocktailDetails(responseJson) {
     console.log(responseJson);
     //Step 3d - populate the htmlOutut variable with all the relevant data
     for (i = 0; i < responseJson.drinks.length; i++) {
-        console.log(responseJson.drinks[i])
-        $('#results-list').append(`
-                <label for="cocktail-select">
-                    <li>
-                        <h3>${responseJson.drinks[i].strDrink}</h3>
-                        <input type="checkbox" id="cocktail-select">
-                        <ul>
-                            <li><img src="${responseJson.drinks[i].strDrinkThumb}" class="img-full"></li>
-                        </ul>
-                        </input>
-                    </li>
-                </label>
-            `);
+        console.log(responseJson.drinks[i]);
+        responseJson.drinks.forEach((drink) => {
+            const drinkEntries = Object.entries(drink),
+                // This part build arrays out of the two sets of keys
+                [
+                    ingredientsArray,
+                    measuresArray
+                ] = [
+                    "strIngredient",
+                    "strMeasure"
+                ].map((keyName) => Object.assign([], ...drinkEntries
+                    .filter(([key, value]) => key.startsWith(keyName))
+                    .map(([key, value]) => ({ [parseInt(key.slice(keyName.length))]: value })))),
+
+                // This part filters empty values based on the ingredients
+                {
+                    finalIngredients,
+                    finalMeasures
+                } = ingredientsArray.reduce((results, value, index) => {
+                    if (value && value.trim() || measuresArray[index] && measuresArray[index].trim()) {
+                        results.finalIngredients.push(value);
+                        results.finalMeasures.push(measuresArray[index]);
+                    }
+
+                    return results;
+                }, {
+                    finalIngredients: [],
+                    finalMeasures: []
+                }),
+
+                // Optional: zip both arrays
+                ingredientsWithMeasures = finalIngredients
+                    .map((value, index) => [finalMeasures[index], value]);
+
+            // Output
+            console.log("Ingredients:", finalIngredients);
+            console.log("Measures:", finalMeasures);
+            console.log(ingredientsWithMeasures);
+            let ingredientsWithMeasuresOutput = ingredientsWithMeasures.map(([measure, ingredient]) => `${(measure || "").trim()} ${(ingredient || "").trim()}`).join("<br />");
+            console.log("All ingredients and measures:\n", ingredientsWithMeasures
+                .map(([measure, ingredient]) => `${(measure || "").trim()} ${(ingredient || "").trim()}`)
+                .join("\n"));
+
+            $('#results-list').append(`
+                    
+                        <li>
+                            <label for="cocktail-select">
+                                <h3>${responseJson.drinks[i].strDrink}</h3>
+                                <input type="checkbox" class="cocktail-select" />
+                                <img src="${responseJson.drinks[i].strDrinkThumb}" class="img-full">
+                                <p class="instructions">
+                                    ${ingredientsWithMeasuresOutput}
+                                </p>
+                            </label>
+                        </li>
+                    
+                `); 
+        });
+        
+        
     }
 
     //Step 3e - send the content of HTML results variable to the HTML
     $('.results').removeClass('hidden');
+    // $('.instructions').removeClass('hidden');
 }
 //Get drink ID's based on search results
 // function getDrinkId(responseJson) {
 //     const id = 
 //     console.log(id);
 // }
+
+//Save selected cocktails
+
 
 //Search results will populate a new form with chekcboxes, cocktail names, and images
 //checkboxes will save and create thumbnails of cocktails
@@ -117,4 +168,8 @@ function cocktailWatch() {
     })
 }
 
-$(cocktailWatch);
+function main() {
+    cocktailWatch();
+}
+
+$(main);
