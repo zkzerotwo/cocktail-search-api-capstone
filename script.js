@@ -58,18 +58,16 @@ function getDataById(cocktailId) {
             "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
         }
     })
-
-        //Step 2c - success scenario (call the function to display the results)
+//Step 2c - success scenario (call the function to display the results)
         .then(response => {
             if (response.ok) {
                 return response.json();
             }
-            // DISPLAY ERRORS if the server connection works but the json data is broken
+// DISPLAY ERRORS if the server connection works but the json data is broken
             throw new Error(response.statusText);
         })
         .then(responseJson => displayCocktailDetails(responseJson))
-
-        // Step 2d - failure scenario  (DISPLAY ERRORS if the server connection fails)
+// Step 2d - failure scenario  (DISPLAY ERRORS if the server connection fails)
         .catch(err => {
             console.log(err);
         });
@@ -77,7 +75,7 @@ function getDataById(cocktailId) {
 
 function displayCocktailDetails(responseJson) {
     console.log(responseJson);
-    //Step 3d - populate the htmlOutut variable with all the relevant data
+ //Step 3d - populate the htmlOutut variable with all the relevant data
     for (i = 0; i < responseJson.drinks.length; i++) {
         console.log(responseJson.drinks[i]);
         responseJson.drinks.forEach((drink) => {
@@ -92,7 +90,6 @@ function displayCocktailDetails(responseJson) {
                 ].map((keyName) => Object.assign([], ...drinkEntries
                     .filter(([key, value]) => key.startsWith(keyName))
                     .map(([key, value]) => ({ [parseInt(key.slice(keyName.length))]: value })))),
-
                 // This part filters empty values based on the ingredients
                 {
                     finalIngredients,
@@ -102,17 +99,14 @@ function displayCocktailDetails(responseJson) {
                         results.finalIngredients.push(value);
                         results.finalMeasures.push(measuresArray[index]);
                     }
-
                     return results;
                 }, {
                     finalIngredients: [],
                     finalMeasures: []
                 }),
-
                 // Optional: zip both arrays
                 ingredientsWithMeasures = finalIngredients
                     .map((value, index) => [finalMeasures[index], value]);
-
             // Output
             console.log("Ingredients:", finalIngredients);
             console.log("Measures:", finalMeasures);
@@ -123,7 +117,6 @@ function displayCocktailDetails(responseJson) {
                 .join("\n"));
 
             $('#results-list').append(`
-                    
                         <li>
                             <label for="cocktail-select">
                                 <h3>${responseJson.drinks[i].strDrink}</h3>
@@ -141,22 +134,11 @@ function displayCocktailDetails(responseJson) {
         
     }
 
-    //Step 3e - send the content of HTML results variable to the HTML
+//Remove hidden class from results
     $('.results').removeClass('hidden');
-    // $('.instructions').removeClass('hidden');
 }
-//Get drink ID's based on search results
-// function getDrinkId(responseJson) {
-//     const id = 
-//     console.log(id);
-// }
-
-//Save selected cocktails
 
 
-//Search results will populate a new form with chekcboxes, cocktail names, and images
-//checkboxes will save and create thumbnails of cocktails
-//thumbnails clicked will bring up cocktails they've saved
 // Watch form for cocktail submissions
 function cocktailWatch() {
     console.log("Waiting on the bartender");
