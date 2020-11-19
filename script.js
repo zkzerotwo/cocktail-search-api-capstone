@@ -115,13 +115,13 @@ function displayCocktailDetails(responseJson) {
             console.log("All ingredients and measures:\n", ingredientsWithMeasures
                 .map(([measure, ingredient]) => `${(measure || "").trim()} ${(ingredient || "").trim()}`)
                 .join("\n"));
-
             $('#results-list').append(`
                         <li>
                                 <h3>${responseJson.drinks[i].strDrink}</h3>
                                 <img src="${responseJson.drinks[i].strDrinkThumb}" class="img-full">
                                 <p class="instructions">
-                                    ${ingredientsWithMeasuresOutput}
+                                    ${ingredientsWithMeasuresOutput}<br/><br/>
+                                    ${responseJson.drinks[i].strInstructions}
                                 </p>
                             </label>
                         </li>
@@ -142,6 +142,7 @@ function cocktailWatch() {
     console.log("Waiting on the bartender");
     $('form[id="cocktails"]').submit(event => {
         event.preventDefault();
+    $('#results-list').empty();
     const chosenIngredient = $('.ingredient-list').val();
     console.log(chosenIngredient);
     getDataByIngredient(chosenIngredient);
