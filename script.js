@@ -118,9 +118,7 @@ function displayCocktailDetails(responseJson) {
 
             $('#results-list').append(`
                         <li>
-                            <label for="cocktail-select">
                                 <h3>${responseJson.drinks[i].strDrink}</h3>
-                                <input type="checkbox" class="cocktail-select" />
                                 <img src="${responseJson.drinks[i].strDrinkThumb}" class="img-full">
                                 <p class="instructions">
                                     ${ingredientsWithMeasuresOutput}
