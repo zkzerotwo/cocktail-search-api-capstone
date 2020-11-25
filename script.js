@@ -116,10 +116,10 @@ function displayCocktailDetails(responseJson) {
                 .map(([measure, ingredient]) => `${(measure || "").trim()} ${(ingredient || "").trim()}`)
                 .join("\n"));
             $('#results-list').append(`
-                        <li>
+                        <li class="list-item">
                                 <h3>${responseJson.drinks[i].strDrink}</h3>
                                 <img src="${responseJson.drinks[i].strDrinkThumb}" class="img-full">
-                                <p class="instructions">
+                                <p class="instructions hidden">
                                     ${ingredientsWithMeasuresOutput}<br/><br/>
                                     ${responseJson.drinks[i].strInstructions}
                                 </p>
@@ -136,6 +136,27 @@ function displayCocktailDetails(responseJson) {
     $('.results').removeClass('hidden');
 }
 
+function updateFavorites() {
+    for (let i = 0; i < localStorage.length; i++) {
+        console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+        $('.favorites').append(`
+        <p class="cocktailName">${localStorage.key(i)}</p>
+        <p class="cocktailInstructions">${localStorage.getItem(localStorage.key(i))}</p>
+        `);
+    }
+}
+
+function showIngredients() {
+    $(document).on('click', '.list-item', function() {
+        let cocktailName = $(this).find('h3').text();
+        console.log(cocktailName);
+        let cocktailInstructions = $(this).find('p.instructions').text();
+        console.log(cocktailInstructions);
+        localStorage.setItem(cocktailName, cocktailInstructions);
+        updateFavorites();
+        $(this).find('p.instructions').toggleClass('hidden')
+    })
+}
 
 // Watch form for cocktail submissions
 function cocktailWatch() {
@@ -151,6 +172,9 @@ function cocktailWatch() {
 
 function main() {
     cocktailWatch();
+    showIngredients();
+    window.localStorage.clear();
+    updateFavorites();
 }
 
 $(main);
