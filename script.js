@@ -123,12 +123,24 @@ function displayCocktailDetails(responseJson) {
                                     ${ingredientsWithMeasuresOutput}<br/><br/>
                                     ${responseJson.drinks[i].strInstructions}
                                 </p>
+                                <p class="other-info hidden">
+                                
+                                </p>
                             </label>
                         </li>
                     
                 `); 
         });
-        
+        let testObject = responseJson.drinks[i];
+
+        // Put the object into storage
+        localStorage.setItem('testObject', JSON.stringify(testObject));
+
+        // Retrieve the object from storage
+        let retrievedObject = localStorage.getItem('testObject');
+
+        console.log('retrievedObject: ', JSON.parse(retrievedObject));
+        pickFavorites2(retrievedObject);
         
     }
 
@@ -139,22 +151,90 @@ function displayCocktailDetails(responseJson) {
 function updateFavorites() {
     for (let i = 0; i < localStorage.length; i++) {
         console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
-        $('.favorites').append(`
-        <p class="cocktailName">${localStorage.key(i)}</p>
-        <p class="cocktailInstructions">${localStorage.getItem(localStorage.key(i))}</p>
+        $('.favorites-list').append(`
+        <div class="focus-fave>
+            <p class="cocktailName">${localStorage.key(i)}</p>
+            <img src="${localStorage.getItem(localStorage.key(i))}" class="img-thumb"/>
+            <div class="ingredients-instructions hidden">
+                <p>Some sort of text, right?</p>
+            </div>
+        </div>
         `);
     }
 }
 
-function showIngredients() {
-    $(document).on('click', '.list-item', function() {
+function pickFavorites2(retrievedObject) {
+    let objectCocktail = JSON.parse(retrievedObject);
+    console.log(objectCocktail);
+
+    $(document).on('click', '.list-item', function () {
+//         console.log($(this));
         let cocktailName = $(this).find('h3').text();
         console.log(cocktailName);
-        let cocktailInstructions = $(this).find('p.instructions').text();
-        console.log(cocktailInstructions);
-        localStorage.setItem(cocktailName, cocktailInstructions);
-        updateFavorites();
-        $(this).find('p.instructions').toggleClass('hidden')
+//         let cocktailInstructions = $(this).find('p.instructions').text();
+//         console.log(cocktailInstructions);
+//         // localStorage.setItem(cocktailName, cocktailInstructions);
+//         let cocktailImage = $(this).find('img').prop('src');
+//         console.log(cocktailImage);
+        let checkForDuplicates = localStorage.getItem(cocktailName);
+        console.log(checkForDuplicates);
+        if (checkForDuplicates == null) {
+            localStorage.setItem(cocktailName, objectCocktail);
+            console.log(objectCocktail.idDrink)
+            console.log('Which cocktail')
+        }
+        
+        
+        
+//         $('.favorites-list').empty();
+//         updateFavorites();
+
+    })
+}
+
+// var testObject = { 'one': 1, 'two': 2, 'three': 3 };
+
+// // Put the object into storage
+// localStorage.setItem('testObject', JSON.stringify(testObject));
+
+// // Retrieve the object from storage
+// var retrievedObject = localStorage.getItem('testObject');
+
+// console.log('retrievedObject: ', JSON.parse(retrievedObject));
+
+// function pickFavorites() {
+//     $(document).on('click', '.list-item', function() {
+//         let cocktailName = $(this).find('h3').text();
+//         console.log(cocktailName);
+//         let cocktailInstructions = $(this).find('p.instructions').text();
+//         console.log(cocktailInstructions);
+//         // localStorage.setItem(cocktailName, cocktailInstructions);
+//         let cocktailImage = $(this).find('img').prop('src');
+//         console.log(cocktailImage);
+//         localStorage.setItem(cocktailName, cocktailImage);
+//         $('.favorites-list').empty();
+//         updateFavorites();
+        
+//     })
+// }
+
+function focusFaves() {
+    $(document).on('click', '.focus-fave', function() {
+        $(this).find('div.ingredients-instructions').toggleClass('hidden');
+    });
+}
+
+function removeFaves() {
+    $(document).on('click', '.focus-fave', function() {
+        for (let i = 0; i < localStorage.length; i++) {
+            console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+        }
+    });
+}
+
+function showIngredients() {
+    $(document).on('mouseover mouseout', '.list-item', function() {
+        $(this).find('p.instructions').toggleClass('hidden');
     })
 }
 
@@ -172,6 +252,10 @@ function cocktailWatch() {
 
 function main() {
     cocktailWatch();
+    // pickFavorites();
+    
+    focusFaves();
+    // removeFaves();
     showIngredients();
     window.localStorage.clear();
     updateFavorites();

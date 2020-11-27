@@ -90,6 +90,16 @@ Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
 
+.favorites {
+    display: flex;
+    flex-direction: row;
+}
+
+.favorites-list {
+    display: flex;
+    flex-direction: row;
+}
+
 
 
 /* -------------------------------------
@@ -124,3 +134,11 @@ li {
     width: 300px;
 }
 
+.img-thumb {
+    width: 75px;
+}
+
+.img-thumb:hover {
+    width: 300px;
+    
+}
