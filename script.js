@@ -61,6 +61,7 @@ function getDataById(cocktailId) {
         //Step 2c - success scenario (call the function to display the results)
         .then(response => {
             if (response.ok) {
+                // console.log(response.json());
                 return response.json();
             }
             // DISPLAY ERRORS if the server connection works but the json data is broken
@@ -131,16 +132,16 @@ function displayCocktailDetails(responseJson) {
                     
                 `);
         });
-        let testObject = responseJson.drinks[i];
-
+        // let testObject = responseJson.drinks[i];
+        // console.log(responseJson.drinks[i]);
         // Put the object into storage
-        localStorage.setItem('testObject', JSON.stringify(testObject));
+        // localStorage.setItem('testObject', JSON.stringify(testObject));
 
-        // Retrieve the object from storage
-        let retrievedObject = localStorage.getItem('testObject');
+        // // Retrieve the object from storage
+        // let retrievedObject = localStorage.getItem('testObject');
 
         // console.log('retrievedObject: ', JSON.parse(retrievedObject));
-        pickFavorites2(retrievedObject);
+        pickFavorites2(responseJson.drinks[i]);
 
     }
 
@@ -201,58 +202,70 @@ function displayFaveInfo(objectCocktail) {
 }
 
 
-function updateFavorites(objectCocktail) {
+function updateFavorites(cocktailName, objectCocktail) {
+    // console.log(localStorage.length);
     let htmlOutput = ""
     for (let i = 0; i < localStorage.length; i++) {
-        // console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+        // console.log(localStorage.key(i));
+        // console.log(localStorage.getItem(localStorage.key(i)));
+        let localStorageFavorite = localStorage.getItem(localStorage.key(i));
+        let localStorageFavoriteJson = JSON.parse(localStorageFavorite);
+        // console.log(localStorageFavoriteJson);
         htmlOutput += `<div class="focus-fave>`
-        htmlOutput += `<p class="cocktailName">${objectCocktail.strDrink}</p>`
-        htmlOutput += `<img src = "${objectCocktail.strDrinkThumb}" class="img-thumb" />`
+        htmlOutput += `<p class="cocktailName">${localStorageFavoriteJson.strDrink}</p>`
+        htmlOutput += `<img src = "${localStorageFavoriteJson.strDrinkThumb}" class="img-thumb" />`
         htmlOutput += `<div class="ingredients-instructions">`
-        if ((objectCocktail.strMeasure1 != null) && (objectCocktail.strIngredient1 != null)) {
-            htmlOutput += `<p>${objectCocktail.strMeasure1} ${objectCocktail.strIngredient1}</p>`
-        } 
-        if ((objectCocktail.strMeasure2 != null) && (objectCocktail.strIngredient2 != null)) {
-            htmlOutput += `<p>${objectCocktail.strMeasure2} ${objectCocktail.strIngredient2}</p>`
-        } 
-        if ((objectCocktail.strMeasure3 != null) && (objectCocktail.strIngredient3 != null)) {
-            htmlOutput += `<p>${objectCocktail.strMeasure3} ${objectCocktail.strIngredient3}</p>`
-        } 
-        if ((objectCocktail.strMeasure4 != null) && (objectCocktail.strIngredient4 != null)) {
-            htmlOutput += `<p>${objectCocktail.strMeasure4} ${objectCocktail.strIngredient4}</p>`
-        } 
-        if ((objectCocktail.strMeasure5 != null) && (objectCocktail.strIngredient5 != null)) {
-            htmlOutput += `<p>${objectCocktail.strMeasure5} ${objectCocktail.strIngredient5}</p>`
+        if ((localStorageFavoriteJson.strMeasure1 != null) && (localStorageFavoriteJson.strIngredient1 != null)) {
+            htmlOutput += `<p>${localStorageFavoriteJson.strMeasure1} ${localStorageFavoriteJson.strIngredient1}</p>`
+        }
+        if ((localStorageFavoriteJson.strMeasure2 != null) && (localStorageFavoriteJson.strIngredient2 != null)) {
+            htmlOutput += `<p>${localStorageFavoriteJson.strMeasure2} ${localStorageFavoriteJson.strIngredient2}</p>`
+        }
+        if ((localStorageFavoriteJson.strMeasure3 != null) && (localStorageFavoriteJson.strIngredient3 != null)) {
+            htmlOutput += `<p>${localStorageFavoriteJson.strMeasure3} ${localStorageFavoriteJson.strIngredient3}</p>`
+        }
+        if ((localStorageFavoriteJson.strMeasure4 != null) && (localStorageFavoriteJson.strIngredient4 != null)) {
+            htmlOutput += `<p>${localStorageFavoriteJson.strMeasure4} ${localStorageFavoriteJson.strIngredient4}</p>`
+        }
+        if ((localStorageFavoriteJson.strMeasure5 != null) && (localStorageFavoriteJson.strIngredient5 != null)) {
+            htmlOutput += `<p>${localStorageFavoriteJson.strMeasure5} ${localStorageFavoriteJson.strIngredient5}</p>`
         }
 
-        htmlOutput += `<p>${objectCocktail.strInstructions}</p>`
+        htmlOutput += `<p>${localStorageFavoriteJson.strInstructions}</p>`
         htmlOutput += `</div>`
         htmlOutput += `</div>`
-        console.log(objectCocktail.strDrink);
+        // console.log(objectCocktail.strDrink);
     }
+    // console.log(localStorage);
     $('.favorites-list').html(htmlOutput);
 }
 
-function pickFavorites2(retrievedObject) {
-    let objectCocktail = JSON.parse(retrievedObject);
-    // console.log(objectCocktail);
+function pickFavorites2(objectCocktail) {
+
 
     $(document).on('click', '.list-item', function () {
+        // console.log(retrievedObject)
         let cocktailName = $(this).find('h3').text();
-        console.log(cocktailName);
+        // console.log(cocktailName);
+        console.log(objectCocktail);
+
         let checkForDuplicates = localStorage.getItem(cocktailName);
-        console.log(checkForDuplicates);
+        // console.log(checkForDuplicates);
         if (checkForDuplicates == null) {
-            localStorage.setItem(cocktailName, objectCocktail);
-            console.log(objectCocktail.idDrink);
+            console.log(objectCocktail.strDrink)
+            if (objectCocktail.strDrink == cocktailName) {
+                localStorage.setItem(cocktailName, JSON.stringify(objectCocktail));
+            }
+            
+            // console.log(objectCocktail.idDrink);
         }
-        console.log(objectCocktail.strDrink);
-        console.log(objectCocktail.strInstructions);
+        // console.log(objectCocktail.strDrink);
+        // console.log(objectCocktail.strInstructions);
 
 
         $('.favorites-list').empty();
-        updateFavorites(objectCocktail);
-        displayFaveInfo(objectCocktail);
+        updateFavorites(cocktailName, objectCocktail);
+        // displayFaveInfo(objectCocktail);
 
     })
 }
@@ -285,17 +298,17 @@ function pickFavorites2(retrievedObject) {
 
 function focusFaves() {
     $(document).on('click', '.focus-fave', function () {
+        console.log('I been clicked');
         $(this).find('div.ingredients-instructions').toggleClass('hidden');
     });
 }
 
-function removeFaves() {
-    $(document).on('click', '.focus-fave', function () {
-        for (let i = 0; i < localStorage.length; i++) {
-            console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
-        }
-    });
-}
+// function removeFaves() {
+//     $(document).on('click', '.focus-fave', function () {
+//         for (let i = 0; i < localStorage.length; i++) {
+//         }
+//     });
+// }
 
 function showIngredients() {
     $(document).on('mouseover mouseout', '.list-item', function () {
@@ -318,12 +331,11 @@ function cocktailWatch() {
 function main() {
     cocktailWatch();
     // pickFavorites();
-
     focusFaves();
     // removeFaves();
     showIngredients();
     localStorage.clear();
-    updateFavorites();
+    // updateFavorites();
 }
 
 $(main);
