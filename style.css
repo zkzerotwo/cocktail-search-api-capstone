@@ -56,6 +56,32 @@ body {
     margin-right: 100px;
 }
 
+.hidden {
+    display: none;
+}
+
+li {
+ text-decoration: none;   
+}
+
+.img-full {
+    width: 150px;
+}
+
+.img-full:hover {
+    width: 300px;
+}
+
+.img-thumb {
+    width: 200px;
+}
+
+.img-thumb:hover {
+    width: 300px;
+    
+}
+
+
 
 
 /* -------------------------------------
@@ -139,28 +165,4 @@ place all the mobile tables styles below this line
 
 
 
-.hidden {
-    display: none;
-}
-
-li {
- text-decoration: none;   
-}
-
-.img-full {
-    width: 150px;
-}
-
-.img-full:hover {
-    width: 300px;
-}
-
-.img-thumb {
-    width: 200px;
-}
-
-.img-thumb:hover {
-    width: 300px;
-    
-}
 

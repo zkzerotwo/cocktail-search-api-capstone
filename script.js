@@ -5,8 +5,7 @@ function formatQueryParams(params) {
     return queryItems.join('&');
 }
 
-//Select from a dropdown menu a list of ingredients or cocktails
-//Cocktail menus will be populated by Cocktail DB's API
+//Fetch data by ingredient
 function getDataByIngredient(chosenIngredient) {
     //Step 2a - create the url
     const url = `https://the-cocktail-db.p.rapidapi.com/filter.php?i=${chosenIngredient}`;
@@ -36,7 +35,7 @@ function getDataByIngredient(chosenIngredient) {
         });
 }
 
-
+//Convert returned drinks into their id numbers
 function displayDrinks(responseJson) {
     // console.log(responseJson);
     for (i = 0; i < responseJson.drinks.length; i++) {
@@ -46,6 +45,7 @@ function displayDrinks(responseJson) {
     }
 }
 
+//Search database by drink id
 function getDataById(cocktailId) {
     //Step 2a - create the url
     const url = `https://the-cocktail-db.p.rapidapi.com/lookup.php?i=${cocktailId}`;
@@ -74,6 +74,7 @@ function getDataById(cocktailId) {
         });
 }
 
+//Display drinks, ingredients, and measurements; Format API Data
 function displayCocktailDetails(responseJson) {
     // console.log(responseJson);
     //Step 3d - populate the htmlOutut variable with all the relevant data
@@ -132,15 +133,6 @@ function displayCocktailDetails(responseJson) {
                     
                 `);
         });
-        // let testObject = responseJson.drinks[i];
-        // console.log(responseJson.drinks[i]);
-        // Put the object into storage
-        // localStorage.setItem('testObject', JSON.stringify(testObject));
-
-        // // Retrieve the object from storage
-        // let retrievedObject = localStorage.getItem('testObject');
-
-        // console.log('retrievedObject: ', JSON.parse(retrievedObject));
         pickFavorites2(responseJson.drinks[i]);
 
     }
@@ -149,59 +141,14 @@ function displayCocktailDetails(responseJson) {
     $('.results').removeClass('hidden');
 }
 
+//Confirm drink data stored in local storage
 function displayFaveInfo(objectCocktail) {
     for (i = 0; i < localStorage.length; i++) {
         console.log(objectCocktail);
-        // Object.entries(objectCocktail).forEach(entry => {
-        //     const [key, value] = entry;
-        //     console.log(key, value);
-        // })
-        // Object.values(objectCocktail).forEach(val => {
-        //     console.log(val);
-        // })
-        // objectCocktail.forEach((drink) => {
-        //     const drinkEntries = Object.entries(drink),
-        //         // This part build arrays out of the two sets of keys
-        //         [
-        //             ingredientsArray,
-        //             measuresArray
-        //         ] = [
-        //             "strIngredient",
-        //             "strMeasure"
-        //         ].map((keyName) => Object.assign([], ...drinkEntries
-        //             .filter(([key, value]l) => key.startsWith(keyName))
-        //             .map(([key, value]) => ({ [parseInt(key.slice(keyName.length))]: value })))),
-        //         // This part filters empty values based on the ingredients
-        //         {
-        //             finalIngredients,
-        //             finalMeasures
-        //         } = ingredientsArray.reduce((results, value, index) => {
-        //             if (value && value.trim() || measuresArray[index] && measuresArray[index].trim()) {
-        //                 results.finalIngredients.push(value);
-        //                 results.finalMeasures.push(measuresArray[index]);
-        //             }
-        //             return results;
-        //         }, {
-        //             finalIngredients: [],
-        //             finalMeasures: []
-        //         }),
-        //         // Optional: zip both arrays
-        //         ingredientsWithMeasures = finalIngredients
-        //             .map((value, index) => [finalMeasures[index], value]);
-        //     // Output
-        //     console.log("Ingredients:", finalIngredients);
-        //     console.log("Measures:", finalMeasures);
-        //     console.log(ingredientsWithMeasures);
-        //     let ingredientsWithMeasuresOutput = ingredientsWithMeasures.map(([measure, ingredient]) => `${(measure || "").trim()} ${(ingredient || "").trim()}`).join("<br />");
-        //     console.log("All ingredients and measures:\n", ingredientsWithMeasures
-        //         .map(([measure, ingredient]) => `${(measure || "").trim()} ${(ingredient || "").trim()}`)
-        //         .join("\n"));
-
-        //         })            
     }
 }
 
-
+//Update favorites list with selected cocktails 
 function updateFavorites(cocktailName, objectCocktail) {
     // console.log(localStorage.length);
     let htmlOutput = ""
@@ -264,31 +211,6 @@ function pickFavorites2(objectCocktail) {
     })
 }
 
-// var testObject = { 'one': 1, 'two': 2, 'three': 3 };
-
-// // Put the object into storage
-// localStorage.setItem('testObject', JSON.stringify(testObject));
-
-// // Retrieve the object from storage
-// var retrievedObject = localStorage.getItem('testObject');
-
-// console.log('retrievedObject: ', JSON.parse(retrievedObject));
-
-// function pickFavorites() {
-//     $(document).on('click', '.list-item', function() {
-//         let cocktailName = $(this).find('h3').text();
-//         console.log(cocktailName);
-//         let cocktailInstructions = $(this).find('p.instructions').text();
-//         console.log(cocktailInstructions);
-//         // localStorage.setItem(cocktailName, cocktailInstructions);
-//         let cocktailImage = $(this).find('img').prop('src');
-//         console.log(cocktailImage);
-//         localStorage.setItem(cocktailName, cocktailImage);
-//         $('.favorites-list').empty();
-//         updateFavorites();
-
-//     })
-// }
 
 function focusFaves() {
     $(document).on('click', '.focus-fave', function () {
