@@ -79,8 +79,8 @@ header > h4 {
 header > ul {
     display: flex;
     flex-direction: row;
-    font-size: 30px;
-    justify-content: space-evenly;
+    font-size: 25px;
+    justify-content: space-between;
 }
 
 
@@ -90,15 +90,36 @@ Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
 
+li.list-item {
+    width: 300px;
+}
+
 .favorites {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .favorites-list {
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
+
+.focus-fave {
+    width: 150px;
+    overflow-wrap: normal;
+}
+
+.ingredients-instructions {
+    overflow-wrap: normal;
+}
+
+ul#results-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 
 
@@ -135,10 +156,11 @@ li {
 }
 
 .img-thumb {
-    width: 75px;
+    width: 200px;
 }
 
 .img-thumb:hover {
     width: 300px;
     
 }
+

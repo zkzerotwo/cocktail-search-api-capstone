@@ -241,28 +241,22 @@ function updateFavorites(cocktailName, objectCocktail) {
 }
 
 function pickFavorites2(objectCocktail) {
-
-
     $(document).on('click', '.list-item', function () {
         // console.log(retrievedObject)
         let cocktailName = $(this).find('h3').text();
         // console.log(cocktailName);
         console.log(objectCocktail);
-
         let checkForDuplicates = localStorage.getItem(cocktailName);
         // console.log(checkForDuplicates);
         if (checkForDuplicates == null) {
             console.log(objectCocktail.strDrink)
             if (objectCocktail.strDrink == cocktailName) {
                 localStorage.setItem(cocktailName, JSON.stringify(objectCocktail));
-            }
-            
+            }            
             // console.log(objectCocktail.idDrink);
         }
         // console.log(objectCocktail.strDrink);
         // console.log(objectCocktail.strInstructions);
-
-
         $('.favorites-list').empty();
         updateFavorites(cocktailName, objectCocktail);
         // displayFaveInfo(objectCocktail);
@@ -299,20 +293,22 @@ function pickFavorites2(objectCocktail) {
 function focusFaves() {
     $(document).on('click', '.focus-fave', function () {
         console.log('I been clicked');
-        $(this).find('div.ingredients-instructions').toggleClass('hidden');
+        // $(this).find('div.ingredients-instructions').toggleClass('hidden');
     });
 }
-
-// function removeFaves() {
-//     $(document).on('click', '.focus-fave', function () {
-//         for (let i = 0; i < localStorage.length; i++) {
-//         }
-//     });
-// }
 
 function showIngredients() {
     $(document).on('mouseover mouseout', '.list-item', function () {
         $(this).find('p.instructions').toggleClass('hidden');
+    })
+}
+
+function resetFaves() {
+    $('form[id="reset"]').on('click', '.no-fave', function() {
+        let htmlOutput2 = "";
+        // console.log('I been clicked');
+        $('.favorites-list').html(htmlOutput2);
+        localStorage.clear();
     })
 }
 
@@ -336,6 +332,7 @@ function main() {
     showIngredients();
     localStorage.clear();
     // updateFavorites();
+    resetFaves();
 }
 
 $(main);

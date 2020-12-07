@@ -25,10 +25,12 @@
       <li>Liqueurs or amari? Campari and Aperol work fine, but you need Green or Yellow Chartreuse</li>
       <li>These drinks are compiled from a database of bartenders from all over the world. Instructions may vary</li>
     </ul>
+    <h4>Click a cocktail to save it to your favorites list!</h4>
+    <h5>Reload the page to start your list over</h5>
   </header>
   <main class="cocktail-search">
     <form id="cocktails">
-      <label for="ingredient-list">Choose a liquor:</label>
+      <label for="ingredient-list">Choose an ingredient:</label>
       <input type="text" class="ingredient-list" name="ingredient-list" value="Green Chartreuse">
       <button type="submit">Search</button>
     </form>
@@ -36,6 +38,9 @@
       <p>Favorites</p>
       <div class="favorites-list">
       </div>
+      <form id="reset">
+        <button type="button" class="no-fave">New Faves?</button>
+      </form>
     </section>
     <section class="results hidden">
       <div id="cocktail-list">
