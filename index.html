@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display">
   <link href="style.css" rel="stylesheet" type="text/css" />
   <title>Vinokage's Cocktail Search</title>
 </head>
 
 <body>
-  <header class="introduction">
+  <header class="introduction column">
     <h1>Welcome to the Vinokage's Cocktail Search</h1>
     <h3>
       Search for your cocktails by ingredient to return a list of cocktails and their instructions.
@@ -26,23 +27,26 @@
       <li>These drinks are compiled from a database of bartenders from all over the world. Instructions may vary</li>
     </ul>
     <h4>Click a cocktail to save it to your favorites list!</h4>
-    <h5>Reload the page to start your list over</h5>
+
   </header>
   <main class="cocktail-search">
-    <form id="cocktails">
-      <label for="ingredient-list">Choose an ingredient:</label>
-      <input type="text" class="ingredient-list" name="ingredient-list" value="Green Chartreuse">
-      <button type="submit">Search</button>
-    </form>
-    <section class="favorites">
-      <p>Favorites</p>
-      <div class="favorites-list">
-      </div>
+    <section class="search">
+      <h5>Reload the page to start your list over</h5>
+      <form id="cocktails">
+        <label for="ingredient-list">Choose an ingredient:</label>
+        <input type="text" class="ingredient-list" name="ingredient-list" value="Green Chartreuse">
+        <button type="submit">Search</button>
+      </form>
+    </section>
+    <section class="favorites column">
+      <h5>Favorited Cocktails</h5>
+      <ul class="favorites-list">
+      </ul>
       <form id="reset">
         <button type="button" class="no-fave">New Faves?</button>
       </form>
     </section>
-    <section class="results hidden">
+    <section class="r-back results hidden">
       <div id="cocktail-list">
         <ul id="results-list">
         </ul>
@@ -50,6 +54,8 @@
       </div>
     </section>
   </main>
+  <footer><a href="https://www.freepik.com/vectors/background">Background vector created by macrovector -
+      www.freepik.com</a></footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="script.js"></script>
 </body>

@@ -158,7 +158,7 @@ function updateFavorites(cocktailName, objectCocktail) {
         let localStorageFavorite = localStorage.getItem(localStorage.key(i));
         let localStorageFavoriteJson = JSON.parse(localStorageFavorite);
         // console.log(localStorageFavoriteJson);
-        htmlOutput += `<div class="focus-fave>`
+        htmlOutput += `<li class="focus-fave">`
         htmlOutput += `<p class="cocktailName">${localStorageFavoriteJson.strDrink}</p>`
         htmlOutput += `<img src = "${localStorageFavoriteJson.strDrinkThumb}" class="img-thumb" />`
         htmlOutput += `<div class="ingredients-instructions">`
@@ -180,7 +180,7 @@ function updateFavorites(cocktailName, objectCocktail) {
 
         htmlOutput += `<p>${localStorageFavoriteJson.strInstructions}</p>`
         htmlOutput += `</div>`
-        htmlOutput += `</div>`
+        htmlOutput += `</li>`
         // console.log(objectCocktail.strDrink);
     }
     // console.log(localStorage);

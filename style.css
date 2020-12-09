@@ -49,11 +49,32 @@ General styles (General Module, wrapping around the modules below)
 */
 
 body {
+    background-image: url('images/41675.jpg');
+    background-repeat: repeat;
+    font-family: Garamond;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 100px;
-    margin-right: 100px;
+    align-items: center;
+    font-family: Playfair Display;
+}
+
+button {
+    background-color: goldenrod;
+    border-style: groove;
+    border-radius: 5px;
+    border-style: groove;
+    border-width: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: space-around;
 }
 
 .hidden {
@@ -61,11 +82,11 @@ body {
 }
 
 li {
- text-decoration: none;   
+    list-style-type: none;
 }
 
 .img-full {
-    width: 150px;
+    max-width: 100%;
 }
 
 .img-full:hover {
@@ -73,87 +94,125 @@ li {
 }
 
 .img-thumb {
-    width: 200px;
+    width: 100%;
 }
 
-.img-thumb:hover {
-    width: 300px;
-    
+.r-back {
+    width: 100%;
 }
-
-
-
 
 /* -------------------------------------
 Header styles (Main Module)
 (all the styles inside the < header > or < nav > tags)
 */
 
+header {
+    text-align: center;
+}
 
-
-header > h1{ 
+header h1 {
     font-size: 40px;
+    color: white;
 }
-header > h3 {
+
+header h3 {
     font-size: 35px;
+    color: white;
 }
 
-header > h4 {
+header h4 {
     font-size: 30px;
+    color: white;
 }
 
-header > ul {
+header ul {
     display: flex;
     flex-direction: row;
     font-size: 25px;
     justify-content: space-between;
 }
 
-
+.tips {
+    background-image: url('/images/transparency-white.png');
+    width: 100%;
+    border: 1px groove silver;
+    border-style: outset;
+    border-width: 2px;
+}
 
 /* -------------------------------------
 Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
 */
 
-li.list-item {
-    width: 300px;
+main {
+    text-align: center;
 }
 
-.favorites {
-    display: flex;
-    flex-direction: column;
+.search {
+    background-image: url("images/transparency-white.png");
+    width: 100%;
+    border-radius: 0.5rem;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border: 1px groove silver;
+    border-style: outset;
+    border-width: 2px;
 }
 
-.favorites-list {
+ul.favorites-list {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.focus-fave {
-    width: 150px;
-    overflow-wrap: normal;
-}
-
-.ingredients-instructions {
-    overflow-wrap: normal;
+ul.favorites-list li.focus-fave {
+    background-image: url("images/transparency-white.png");
+    border-radius: 0.5rem;
+    width: 19%;
+    padding: 10px;
+    margin: 2px;
+    border: 1px groove silver;
+    border-style: outset;
+    border-width: 2px;
+    /* vertical-align: top; */
 }
 
 ul#results-list {
-    display: flex;
-    flex-wrap: wrap;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    display: block;
+    /* display: flex;
+    flex-wrap: wrap; */
 }
 
+ul#results-list li.list-item {
+    background-image: url("images/transparency-white.png");
+    border-radius: 0.5rem;
+    width: 19%;
+    display: inline-block;
+    padding: 10px;
+    border: 1px groove gold;
+    border-style: outset;
+    border-width: 2px;
+    vertical-align: top;
+}
 
+form#reset {
+    margin: 10px;
+    height: 30px;
+}
 
+/*Media query for smaller screens*/
 
 /* -------------------------------------
 Footer styles (Main Module)
 (all the styles inside the < footer > tag)
 */
-
 
 /* -------------------------------------
 place all the desktop styles above this line
@@ -162,7 +221,60 @@ Responsive styles
 place all the mobile tables styles below this line
 */
 
+@media only screen and (max-width: 1600px) {
+    body {
+        border: 3px solid yellow;
+    }
+}
 
+/*iPad lanscape / small laptop*/
 
+@media only screen and (max-width: 1024px) {
+    body {
+        border: 3px solid blue;
+    }
+    ul#results-list li.list-item {
+        width: 24%;
+    }
+}
 
+/*iPad potrait*/
 
+@media only screen and (max-width: 768px) {
+    body {
+        border: 3px solid red;
+    }
+}
+
+/*Android landscape*/
+
+@media only screen and (max-width: 640px) {
+    body {
+        border: 3px solid pink;
+    }
+    ul#results-list li.list-item {
+        width: 32%;
+    }
+}
+
+/*iPhone landscape*/
+
+@media only screen and (max-width: 480px) {
+    body {
+        border: 3px solid green;
+    }
+    ul#results-list li.list-item {
+        width: 49%;
+    }
+}
+
+/*iPhone portrait*/
+
+@media only screen and (max-width: 320px) {
+    body {
+        border: 3px solid purple;
+    }
+    ul#results-list li.list-item {
+        width: 100%;
+    }
+}
