@@ -37,16 +37,29 @@ function getDataByIngredient(chosenIngredient) {
 
 //Convert returned drinks into their id numbers
 function displayDrinks(responseJson) {
-    // console.log(responseJson);
-    for (i = 0; i < responseJson.drinks.length; i++) {
-        //console.log(responseJson.drinks[i])
-        // console.log(responseJson.drinks[i].idDrink);
-        getDataById(responseJson.drinks[i].idDrink);
+    // console.log(responseJson);  
+    //if responseJSON is a string, then it is an error
+    if ((typeof responseJson.drinks) == "string") {
+        alert("Sorry, we don't seem to have that ingredient. Try again.") 
     }
+    //if responseJSON is an array, continue function
+    else {
+        for (i = 0; i < responseJson.drinks.length; i++) {
+            // console.log(responseJson.drinks[i]);
+            // console.log(responseJson.drinks[i].idDrink);
+            getDataById(responseJson.drinks[i].idDrink);
+        }
+    }
+    
 }
 
 //Search database by drink id
 function getDataById(cocktailId) {
+    console.log(cocktailId);
+    let cid = cocktailId;
+    if (cid == undefined) {
+        alert("Sorry, we don't seem to have that ingredient. Try again.")
+    } else {
     //Step 2a - create the url
     const url = `https://the-cocktail-db.p.rapidapi.com/lookup.php?i=${cocktailId}`;
     // console.log(url);
@@ -71,7 +84,10 @@ function getDataById(cocktailId) {
         // Step 2d - failure scenario  (DISPLAY ERRORS if the server connection fails)
         .catch(err => {
             console.log(err);
+            // console.log(drinks)
+            // alert("Sorry, doesn't look like we have that")
         });
+    }
 }
 
 //Display drinks, ingredients, and measurements; Format API Data

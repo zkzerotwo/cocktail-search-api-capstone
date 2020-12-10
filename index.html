@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <header class="introduction column">
+  <header class="introduction">
     <h1>Welcome to the Vinokage's Cocktail Search</h1>
     <h3>
       Search for your cocktails by ingredient to return a list of cocktails and their instructions.
@@ -20,21 +20,23 @@
       Here's some tips to find what you're looking for:
     </h4>
     <br />
-    <ul class="tips">
-      <li>Be as specific as possible. Don't search whiskey, search bourbon. Search Scotch</li>
-      <li>Need mixers? Go Coca-Cola instead of Coke. Ginger ale and ginger beer are different</li>
-      <li>Liqueurs or amari? Campari and Aperol work fine, but you need Green or Yellow Chartreuse</li>
-      <li>These drinks are compiled from a database of bartenders from all over the world. Instructions may vary</li>
-    </ul>
-    <h4>Click a cocktail to save it to your favorites list!</h4>
-
+    
   </header>
   <main class="cocktail-search">
+    <section>
+      <ul class="tips">
+        <li>Be as specific as possible. Don't search whiskey, search bourbon. Search Scotch</li>
+        <li>Need mixers? Go Coca-Cola instead of Coke. Ginger ale and ginger beer are different</li>
+        <li>Liqueurs or amari? Campari and Aperol work fine, but you need Green or Yellow Chartreuse</li>
+        <li>These drinks are compiled from a database of bartenders from all over the world. Instructions may vary</li>
+      </ul>
+      <h4>Click a cocktail to save it to your favorites list!</h4>
+    </section>
     <section class="search">
       <h5>Reload the page to start your list over</h5>
       <form id="cocktails">
         <label for="ingredient-list">Choose an ingredient:</label>
-        <input type="text" class="ingredient-list" name="ingredient-list" value="Green Chartreuse">
+        <input type="text" class="ingredient-list" name="ingredient-list" value="apples">
         <button type="submit">Search</button>
       </form>
     </section>

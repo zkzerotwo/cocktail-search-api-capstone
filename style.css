@@ -51,12 +51,18 @@ General styles (General Module, wrapping around the modules below)
 body {
     background-image: url('images/41675.jpg');
     background-repeat: repeat;
-    font-family: Garamond;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: Playfair Display;
+    font-size: 16px;
+    font-family: "Playfair Display", "Garamond", "Times", serif;
+}
+
+input {
+    border-style: groove;
+    border-radius: 5px;
+    border-style: groove;
+    border-width: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
 }
 
 button {
@@ -111,17 +117,15 @@ header {
 }
 
 header h1 {
-    font-size: 40px;
+    font-size: 200%;
     color: white;
 }
 
 header h3 {
-    font-size: 35px;
     color: white;
 }
 
 header h4 {
-    font-size: 30px;
     color: white;
 }
 
@@ -149,6 +153,13 @@ main {
     text-align: center;
 }
 
+main h4 {
+    color: white;
+}
+main h3 {
+    color: white;
+}
+
 .search {
     background-image: url("images/transparency-white.png");
     width: 100%;
@@ -158,6 +169,10 @@ main {
     border: 1px groove silver;
     border-style: outset;
     border-width: 2px;
+}
+
+.favorites h5 {
+    color: white;
 }
 
 ul.favorites-list {
@@ -202,6 +217,9 @@ ul#results-list li.list-item {
     vertical-align: top;
 }
 
+ul#results-list li.list-item h3 {
+    color: black;
+}
 form#reset {
     margin: 10px;
     height: 30px;
@@ -244,6 +262,12 @@ place all the mobile tables styles below this line
     body {
         border: 3px solid red;
     }
+    ul.favorites-list li.focus-fave {
+        width: 49%;
+    }
+    ul#results-list li.list-item {
+        width: 32%;
+    }
 }
 
 /*Android landscape*/
@@ -252,8 +276,8 @@ place all the mobile tables styles below this line
     body {
         border: 3px solid pink;
     }
-    ul#results-list li.list-item {
-        width: 32%;
+    ul.favorites-list li.focus-fave {
+        width: 99%;
     }
 }
 
@@ -273,6 +297,9 @@ place all the mobile tables styles below this line
 @media only screen and (max-width: 320px) {
     body {
         border: 3px solid purple;
+    }
+    header h1 {
+        font-size: 150%;
     }
     ul#results-list li.list-item {
         width: 100%;
