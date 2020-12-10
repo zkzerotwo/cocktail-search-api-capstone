@@ -136,14 +136,6 @@ header ul {
     justify-content: space-between;
 }
 
-.tips {
-    background-image: url('/images/transparency-white.png');
-    width: 100%;
-    border: 1px groove silver;
-    border-style: outset;
-    border-width: 2px;
-}
-
 /* -------------------------------------
 Content styles (Main Module)
 (all the styles inside the < sections > or < aside > tags)
@@ -156,8 +148,17 @@ main {
 main h4 {
     color: white;
 }
+
 main h3 {
     color: white;
+}
+
+.tips {
+    background-image: url('/images/transparency-white.png');
+    width: 100%;
+    border: 1px groove silver;
+    border-style: outset;
+    border-width: 2px;
 }
 
 .search {
@@ -220,6 +221,7 @@ ul#results-list li.list-item {
 ul#results-list li.list-item h3 {
     color: black;
 }
+
 form#reset {
     margin: 10px;
     height: 30px;
