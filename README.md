@@ -9,7 +9,7 @@ You can access a working prototype here: https://zkzerotwo.github.io/cocktail-se
 
 
 
-### 2. User Stories (to do now)
+### 2. User Stories
 ###### Landing Page (Importance - High) (Est: 1h)
 * as a visitor
 * I want to see introduction and welcome message
@@ -36,7 +36,7 @@ You can access a working prototype here: https://zkzerotwo.github.io/cocktail-se
 * so I can reveal their measurements and instructions
 
 
-### 3. Functionality (to do now)
+### 3. Functionality
 The app's functionality includes:
 * Every user will be able to find cocktails by ingredient
 * Every user will be able to save cocktails they've found temporarily
@@ -45,12 +45,12 @@ The app's functionality includes:
 
 
 
-### 4. Technology (done)
+### 4. Technology
 * HTML5, CSS3, JavaScript ES6, Jquery, API
 
 
 
-### 5. Wireframes (to do now)
+### 5. Wireframes
 Landing Page
 :-------------------------:
 ![Landing Page](/github-images/wireframes/screenshot1.png)
@@ -63,13 +63,13 @@ Favorites
 
 
 
-### 6. API Documentation (to do later)
+### 6. API Documentation
 The Cocktail DB API: 
 * source cocktails by ingredient and id number https://rapidapi.com/thecocktaildb/api/the-cocktail-db/endpoints
 
 
 
-### 7. Screenshots (to do later)
+### 7. Screenshots
 Landing Page
 :-------------------------:
 ![Landing Page](/github-images/screenshots/screenshot1.png)
@@ -80,7 +80,7 @@ Favorites
 
 
 
-### 8. Development Roadmap (to do later)
+### 8. Development Roadmap
 This is v1.0 of the app, but future enhancements are expected to include:
 * multiple search parameters
 * css animations
