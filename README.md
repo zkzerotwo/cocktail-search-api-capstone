@@ -61,7 +61,7 @@ The Cocktail DB API:
 (Example) Landing Page
 :-------------------------:
 ![Landing Page](/github-images/screenshots/screenshot1.png)
-![Search Results](/github-images/screenshots.screenshot2.png)
+![Search Results](/github-images/screenshots/screenshot2.png)
 ![Favorites](/github-images/screenshots/screenshot3.png)
 
 
