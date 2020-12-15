@@ -154,7 +154,7 @@ main h3 {
 }
 
 ul.tips {
-    background-image: url("/images/transparency-white.png");
+    background-image: url("images/transparency-white.png");
     width: 100%;
     border: 1px groove silver;
     border-style: outset;
