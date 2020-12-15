@@ -4,34 +4,44 @@ Users search for cocktails and build their own menu
 
 
 
-### 1. Working Prototype (to do later)
-(Example) You can access a working prototype here: https://zkzerotwo.github.io/cocktail-search-api-capstone/
+### 1. Working Prototype
+You can access a working prototype here: https://zkzerotwo.github.io/cocktail-search-api-capstone/
 
 
 
 ### 2. User Stories (to do now)
-*Users see introduction and welcome message
-*Users will enter an ingredient into the search bar
-*Pressing search will bring up results
-*Clicking results will add them to a favorites list above the search
-*Pressing New Faves button will clear the favorites list
+###### Landing Page (Importance - High) (Est: 1h)
+* as a visitor
+* I want to see introduction and welcome message
+* so I can decide if I want to use the app
 
+###### Landing Page (Importance - High) (Est: 1h)
+* as a visitor
+* I want to enter an ingredient into the search bar
+* so I can find cocktails made with that ingredient
 
-###### (Example) Landing Page (Importance - High) [Estimation: 1 hr]
+###### Landing Page (Importance - High) (Est: 1h)
+* as a visitor
+* I want to select an item from the results
+* so I can add it to my favorites
+
+###### Landing Page (Importance - High) (Est: 1h)
+* as a visitor
+* I want to press the New Faves button
+* so I can start a new list of favorites
+
+######Landing Page (Importance - High) [Estimation: 1 hr]
 *As a user
-*You will be welcomed with examples of how to use the cocktail search
-*Enter your ingredient and search for cocktails containing it
-*Search results will populate with cocktail names and images
-*hovering over images will reveal measurements and instructions
-*clicking a result will add it to your list of favorites
-*favorites list is saved while you conduct another search
-*press button to clear favorites
+* I want to hover over images of cocktails
+* so I can reveal their measurements and instructions
 
 
 ### 3. Functionality (to do now)
 The app's functionality includes:
 * Every user will be able to find cocktails by ingredient
 * Every user will be able to save cocktails they've found temporarily
+* Every user will be able to clear their saved list
+* Every user will be able to hover over results to reveal ingredients and measurements
 
 
 
@@ -41,7 +51,7 @@ The app's functionality includes:
 
 
 ### 5. Wireframes (to do now)
-(Example) Landing Page
+Landing Page
 :-------------------------:
 ![Landing Page](/github-images/wireframes/screenshot1.png)
 ![Search Results](/github-images/wireframes/screenshot2.png)
@@ -52,13 +62,13 @@ The app's functionality includes:
 
 
 ### 6. API Documentation (to do later)
-The Cocktail DB API:
-* source cocktails by ingredient and id number
+The Cocktail DB API: 
+* source cocktails by ingredient and id number https://rapidapi.com/thecocktaildb/api/the-cocktail-db/endpoints
 
 
 
 ### 7. Screenshots (to do later)
-(Example) Landing Page
+Landing Page
 :-------------------------:
 ![Landing Page](/github-images/screenshots/screenshot1.png)
 ![Search Results](/github-images/screenshots/screenshot2.png)
@@ -69,7 +79,7 @@ The Cocktail DB API:
 ### 8. Development Roadmap (to do later)
 This is v1.0 of the app, but future enhancements are expected to include:
 * multiple search parameters
-*css animations
-*favorite cocktails removed on individual click
+* css animations
+* favorite cocktails removed on individual click
 
 
