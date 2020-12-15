@@ -31,7 +31,7 @@ You can access a working prototype here: https://zkzerotwo.github.io/cocktail-se
 * so I can start a new list of favorites
 
 ######Landing Page (Importance - High) [Estimation: 1 hr]
-*As a user
+* As a user
 * I want to hover over images of cocktails
 * so I can reveal their measurements and instructions
 
@@ -54,7 +54,11 @@ The app's functionality includes:
 Landing Page
 :-------------------------:
 ![Landing Page](/github-images/wireframes/screenshot1.png)
+Search Results
+:-------------------------:
 ![Search Results](/github-images/wireframes/screenshot2.png)
+Favorites
+:-------------------------:
 ![Favorites](/github-images/wireframes/screenshot3.png)
 
 
@@ -71,7 +75,11 @@ The Cocktail DB API:
 Landing Page
 :-------------------------:
 ![Landing Page](/github-images/screenshots/screenshot1.png)
+Search Results
+:-------------------------:
 ![Search Results](/github-images/screenshots/screenshot2.png)
+Favorites
+:-------------------------:
 ![Favorites](/github-images/screenshots/screenshot3.png)
 
 
