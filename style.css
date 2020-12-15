@@ -254,18 +254,18 @@ Responsive styles
 place all the mobile tables styles below this line
 */
 
-@media only screen and (max-width: 1600px) {
+/* @media only screen and (max-width: 1600px) {
     body {
         border: 3px solid yellow;
     }
-}
+} */
 
 /*iPad lanscape / small laptop*/
 
 @media only screen and (max-width: 1024px) {
-    body {
+    /* body {
         border: 3px solid blue;
-    }
+    } */
     ul.favorites-list li.focus-fave {
         width: 32%;
     }
@@ -277,9 +277,9 @@ place all the mobile tables styles below this line
 /*iPad potrait*/
 
 @media only screen and (max-width: 768px) {
-    body {
+    /* body {
         border: 3px solid red;
-    }
+    } */
     ul.favorites-list li.focus-fave {
         width: 49%;
     }
@@ -291,9 +291,9 @@ place all the mobile tables styles below this line
 /*Android landscape*/
 
 @media only screen and (max-width: 640px) {
-    body {
+    /* body {
         border: 3px solid pink;
-    }
+    } */
     ul.favorites-list li.focus-fave {
         width: 99%;
     }
@@ -302,9 +302,9 @@ place all the mobile tables styles below this line
 /*iPhone landscape*/
 
 @media only screen and (max-width: 480px) {
-    body {
+    /* body {
         border: 3px solid green;
-    }
+    } */
     ul#results-list li.list-item {
         width: 49%;
     }
@@ -313,9 +313,9 @@ place all the mobile tables styles below this line
 /*iPhone portrait*/
 
 @media only screen and (max-width: 320px) {
-    body {
+    /* body {
         border: 3px solid purple;
-    }
+    } */
     header h1 {
         font-size: 150%;
     }
