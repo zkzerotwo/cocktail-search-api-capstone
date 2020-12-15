@@ -55,7 +55,7 @@ function displayDrinks(responseJson) {
 
 //Search database by drink id
 function getDataById(cocktailId) {
-    console.log(cocktailId);
+    // console.log(cocktailId);
     let cid = cocktailId;
     if (cid == undefined) {
         alert("Sorry, we don't seem to have that ingredient. Try again.")
@@ -160,7 +160,7 @@ function displayCocktailDetails(responseJson) {
 //Confirm drink data stored in local storage
 function displayFaveInfo(objectCocktail) {
     for (i = 0; i < localStorage.length; i++) {
-        console.log(objectCocktail);
+        // console.log(objectCocktail);
     }
 }
 
@@ -208,11 +208,11 @@ function pickFavorites2(objectCocktail) {
         // console.log(retrievedObject)
         let cocktailName = $(this).find('h3').text();
         // console.log(cocktailName);
-        console.log(objectCocktail);
+        // console.log(objectCocktail);
         let checkForDuplicates = localStorage.getItem(cocktailName);
         // console.log(checkForDuplicates);
         if (checkForDuplicates == null) {
-            console.log(objectCocktail.strDrink)
+            // console.log(objectCocktail.strDrink)
             if (objectCocktail.strDrink == cocktailName) {
                 localStorage.setItem(cocktailName, JSON.stringify(objectCocktail));
             }            
@@ -230,7 +230,7 @@ function pickFavorites2(objectCocktail) {
 
 function focusFaves() {
     $(document).on('click', '.focus-fave', function () {
-        console.log('I been clicked');
+        // console.log('I been clicked');
         // $(this).find('div.ingredients-instructions').toggleClass('hidden');
     });
 }
@@ -252,12 +252,12 @@ function resetFaves() {
 
 // Watch form for cocktail submissions
 function cocktailWatch() {
-    console.log("Waiting on the bartender");
+    // console.log("Waiting on the bartender");
     $('form[id="cocktails"]').submit(event => {
         event.preventDefault();
         $('#results-list').empty();
         const chosenIngredient = $('.ingredient-list').val();
-        console.log(chosenIngredient);
+        // console.log(chosenIngredient);
         getDataByIngredient(chosenIngredient);
     })
 }
