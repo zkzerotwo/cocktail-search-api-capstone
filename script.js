@@ -135,6 +135,7 @@ function displayCocktailDetails(responseJson) {
             //     .join("\n"));
             $('#results-list').append(`
                         <li class="list-item">
+                        <p class="pop-up hidden">Favorited!</p>
                                 <h3>${responseJson.drinks[i].strDrink}</h3>
                                 <img src="${responseJson.drinks[i].strDrinkThumb}" alt="${responseJson.drinks[i].strDrink}" class="img-full">
                                 <p class="instructions hidden">
@@ -204,7 +205,7 @@ function updateFavorites(cocktailName, objectCocktail) {
 }
 
 function pickFavorites2(objectCocktail) {
-    $(document).on('click', '.list-item', function () {
+    $(document).on('dblclick', '.list-item', function () {
         // console.log(retrievedObject)
         let cocktailName = $(this).find('h3').text();
         // console.log(cocktailName);
@@ -223,6 +224,9 @@ function pickFavorites2(objectCocktail) {
         $('.favorites-list').empty();
         updateFavorites(cocktailName, objectCocktail);
         // displayFaveInfo(objectCocktail);
+        // $(this).find('.pop-up').toggleClass('hidden', 3000);
+        $(this).find('p.pop-up').show(500)
+        $(this).find('p.pop-up').hide(500)
 
     })
 }
@@ -230,13 +234,13 @@ function pickFavorites2(objectCocktail) {
 
 function focusFaves() {
     $(document).on('click', '.focus-fave', function () {
-        // console.log('I been clicked');
+        console.log('I been clicked');
         // $(this).find('div.ingredients-instructions').toggleClass('hidden');
     });
 }
 
 function showIngredients() {
-    $(document).on('mouseover mouseout', '.list-item', function () {
+    $(document).on('click', '.list-item', function () {
         $(this).find('p.instructions').toggleClass('hidden');
     })
 }
