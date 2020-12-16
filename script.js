@@ -136,7 +136,7 @@ function displayCocktailDetails(responseJson) {
             $('#results-list').append(`
                         <li class="list-item">
                                 <h3>${responseJson.drinks[i].strDrink}</h3>
-                                <img src="${responseJson.drinks[i].strDrinkThumb}" class="img-full">
+                                <img src="${responseJson.drinks[i].strDrinkThumb}" alt="${responseJson.drinks[i].strDrink}" class="img-full">
                                 <p class="instructions hidden">
                                     ${ingredientsWithMeasuresOutput}<br/><br/>
                                     ${responseJson.drinks[i].strInstructions}
@@ -176,7 +176,7 @@ function updateFavorites(cocktailName, objectCocktail) {
         // console.log(localStorageFavoriteJson);
         htmlOutput += `<li class="focus-fave">`
         htmlOutput += `<p class="cocktailName">${localStorageFavoriteJson.strDrink}</p>`
-        htmlOutput += `<img src = "${localStorageFavoriteJson.strDrinkThumb}" class="img-thumb" />`
+        htmlOutput += `<img src = "${localStorageFavoriteJson.strDrinkThumb}" alt="${localStorageFavoriteJson.strDrink}" class="img-thumb" />`
         htmlOutput += `<div class="ingredients-instructions">`
         if ((localStorageFavoriteJson.strMeasure1 != null) && (localStorageFavoriteJson.strIngredient1 != null)) {
             htmlOutput += `<p>${localStorageFavoriteJson.strMeasure1} ${localStorageFavoriteJson.strIngredient1}</p>`

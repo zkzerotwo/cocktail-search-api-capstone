@@ -202,8 +202,6 @@ ul#results-list {
     margin-right: auto;
     max-width: 1200px;
     display: block;
-    /* display: flex;
-    flex-wrap: wrap; */
 }
 
 ul#results-list li.list-item {
