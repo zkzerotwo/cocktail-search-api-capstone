@@ -56,6 +56,9 @@ function displayDrinks(responseJson) {
 //Search database by drink id
 function getDataById(cocktailId) {
     // console.log(cocktailId);
+
+    let apiKey = "d36a838384mshc96686c738af0aap11fd78jsnf972d810e8ef"
+    let hostUrl = "the-cocktail-db.p.rapidapi.com"
     let cid = cocktailId;
     if (cid == undefined) {
         alert("Sorry, we don't seem to have that ingredient. Try again.")
@@ -67,8 +70,8 @@ function getDataById(cocktailId) {
     fetch(url, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "d36a838384mshc96686c738af0aap11fd78jsnf972d810e8ef",
-            "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
+            "x-rapidapi-key": apiKey,
+            "x-rapidapi-host": hostUrl
         }
     })
         //Step 2c - success scenario (call the function to display the results)
