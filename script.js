@@ -8,14 +8,16 @@ function formatQueryParams(params) {
 //Fetch data by ingredient
 function getDataByIngredient(chosenIngredient) {
     //Step 2a - create the url
+    let apiKey = "d36a838384mshc96686c738af0aap11fd78jsnf972d810e8ef"
+    let hostUrl = "the-cocktail-db.p.rapidapi.com"
     const url = `https://the-cocktail-db.p.rapidapi.com/filter.php?i=${chosenIngredient}`;
     // console.log(url);
     // Step 2b - make the api call using the URL, dataType (JSON or JSONP), type (GET or POST)
     fetch(url, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "d36a838384mshc96686c738af0aap11fd78jsnf972d810e8ef",
-            "x-rapidapi-host": "the-cocktail-db.p.rapidapi.com"
+            "x-rapidapi-key": apiKey,
+            "x-rapidapi-host": hostUrl
         }
     })
 
@@ -58,9 +60,9 @@ function displayDrinks(responseJson) {
 //Search database by drink id
 function getDataById(cocktailId) {
     // console.log(cocktailId);
-
     let apiKey = "d36a838384mshc96686c738af0aap11fd78jsnf972d810e8ef"
     let hostUrl = "the-cocktail-db.p.rapidapi.com"
+
     let cid = cocktailId;
     if (cid == undefined) {
         $(".error").html("<h2>Sorry, we don't seem to have that ingredient. Try again.</h2>");
