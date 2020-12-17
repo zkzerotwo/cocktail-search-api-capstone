@@ -40,7 +40,7 @@ function displayDrinks(responseJson) {
     // console.log(responseJson);  
     //if responseJSON is a string, then it is an error
     if ((typeof responseJson.drinks) == "string") {
-        $(".error").html("Sorry, we don't seem to have that ingredient. Try again.");
+        $(".error").html("<h2>Sorry, we don't seem to have that ingredient. Try again.</h2>");
         $('.error').removeClass('hidden'); 
     }
     //if responseJSON is an array, continue function
@@ -63,7 +63,7 @@ function getDataById(cocktailId) {
     let hostUrl = "the-cocktail-db.p.rapidapi.com"
     let cid = cocktailId;
     if (cid == undefined) {
-        $(".error").html("Sorry, we don't seem to have that ingredient. Try again.");
+        $(".error").html("<h2>Sorry, we don't seem to have that ingredient. Try again.</h2>");
         $('.error').removeClass('hidden'); 
     } else {
     //Step 2a - create the url

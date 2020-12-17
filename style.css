@@ -220,6 +220,12 @@ form#reset {
     height: 30px;
 }
 
+section.error h2 {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 /*Media query for smaller screens*/
 
 /* -------------------------------------
