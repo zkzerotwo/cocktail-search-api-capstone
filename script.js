@@ -228,7 +228,11 @@ function pickFavorites2(objectCocktail) {
         updateFavorites(cocktailName, objectCocktail);
         // displayFaveInfo(objectCocktail);
         // $(this).find('.pop-up').toggleClass('hidden', 3000);
-        $(this).find('p.pop-up').show(500)
+        $(this).find('p.pop-up').show(500);
+
+    })
+    $(document).on('focusout', '.list-item', function () {
+        console.log('Triggerrrrred');
         $(this).find('p.pop-up').hide(500)
 
     })
