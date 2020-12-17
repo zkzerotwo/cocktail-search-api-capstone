@@ -40,10 +40,12 @@ function displayDrinks(responseJson) {
     // console.log(responseJson);  
     //if responseJSON is a string, then it is an error
     if ((typeof responseJson.drinks) == "string") {
-        alert("Sorry, we don't seem to have that ingredient. Try again.") 
+        $(".error").html("Sorry, we don't seem to have that ingredient. Try again.");
+        $('.error').removeClass('hidden'); 
     }
     //if responseJSON is an array, continue function
     else {
+        $('.error').addClass('hidden'); 
         for (i = 0; i < responseJson.drinks.length; i++) {
             // console.log(responseJson.drinks[i]);
             // console.log(responseJson.drinks[i].idDrink);
@@ -61,7 +63,8 @@ function getDataById(cocktailId) {
     let hostUrl = "the-cocktail-db.p.rapidapi.com"
     let cid = cocktailId;
     if (cid == undefined) {
-        alert("Sorry, we don't seem to have that ingredient. Try again.")
+        $(".error").html("Sorry, we don't seem to have that ingredient. Try again.");
+        $('.error').removeClass('hidden'); 
     } else {
     //Step 2a - create the url
     const url = `https://the-cocktail-db.p.rapidapi.com/lookup.php?i=${cocktailId}`;
@@ -231,11 +234,11 @@ function pickFavorites2(objectCocktail) {
         $(this).find('p.pop-up').show(500);
 
     })
-    $(document).on('focusout', '.list-item', function () {
-        console.log('Triggerrrrred');
-        $(this).find('p.pop-up').hide(500)
+    // $(document).on('focusout', '.list-item', function () {
+    //     console.log('Triggerrrrred');
+    //     $(this).find('p.pop-up').hide(500)
 
-    })
+    // })
 }
 
 
